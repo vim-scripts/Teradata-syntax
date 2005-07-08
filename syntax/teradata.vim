@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Teradata SQL, BTEQ Commands (Teradata V2R4,V2R5)
 " Maintainer:	Lubomir Husar <lh3@centrum.cz>
-" Last Change:	2005 Mar 24
+" Last Change:	2005 Jun 13
 
 syntax clear
 syntax case ignore
@@ -73,12 +73,13 @@ syntax match BTEQCommand "\.GOTO"
 syntax match BTEQCommand "\.HANG"
 syntax match BTEQCommand "\.HELP"
 syntax match BTEQCommand "\.IF"
-syntax match BTEQCommand "\.LABEL"
+syntax match SqlComment "\.LABEL.*$"
 syntax match BTEQCommand "\.LOGON"
 syntax match BTEQCommand "\.LOGOFF"
 syntax match BTEQCommand "\.OS"
-syntax match BTEQCommand "\.QUIET"
+syntax match BTEQCommand "\.QUIET" 
 syntax match BTEQCommand "\.QUIT"
+syntax match BTEQCommand "\.REPEAT"
 syntax match BTEQCommand "\.REPEAT"
 syntax match BTEQCommand "\.RUN"
 syntax match BTEQCommand "\.SESSIONS"
@@ -86,7 +87,7 @@ syntax match BTEQCommand "\.SET"
 syntax match BTEQCommand "\.SHOW"
 syntax match BTEQCommand "\.TDP"
 syntax match BTEQCommand "\.TSO"
-syntax match BTEQCommand "ACTIVITYCOUNT"
+syntax keyword BTEQCommand ERRORCODE ERROROUT WIDTH
 
 syntax match ETDWKeywords "d._.edw"
 syntax match ETDWKeywords "d._mstr"
@@ -98,8 +99,8 @@ syntax match ETDWKeywords "%mart_db%"
 
 syntax region SqlString start="'" end="'"
 syntax match SqlNumber "-\?\<\d*\>"
-syntax region SqlComment start="/\*" end="\*/"
 syntax match SqlComment "\-\-.*$"
+syntax region SqlComment start="/\*" end="\*/"
 syntax match SqlType2 "DECIMAL(\d*,\?\d)"
 syntax match SqlType2 "CHAR(\d*)"
 syntax match SqlType2 "VARCHAR(\d*)"
